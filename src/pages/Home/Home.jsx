@@ -15,7 +15,7 @@ const Home = () => {
   };
 
   const { data: restaurants, isInitialLoading } = useQuery({
-    queryKey: ["getAllRestaurants"],
+    queryKey: ["getAllRestaurants", "homePage"],
     queryFn: async () => await getAllRestaurants(),
   });
 

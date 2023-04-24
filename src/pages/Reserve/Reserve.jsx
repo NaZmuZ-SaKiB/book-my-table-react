@@ -4,6 +4,7 @@ import { useParams, useSearchParams } from "react-router-dom";
 
 import Header from "./components/Header";
 import Form from "./components/Form";
+import { useEffect } from "react";
 
 const Reserve = () => {
   const params = useParams();

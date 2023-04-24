@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 
 import Home from "./pages/Home/Home";
+import Search from "./pages/Search/Search";
 import Restaurant from "./pages/Restaurant/Restaurant";
 import Navbar from "./components/Navbar";
 import Toast from "./components/Toast";
@@ -20,6 +21,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/search" element={<Search />} />
         <Route path="/restaurant/:slug" element={<Restaurant />} />
         <Route path="/reserve/:slug" element={<Reserve />} />
         <Route path="/dashboard" element={<Dashboard />}>

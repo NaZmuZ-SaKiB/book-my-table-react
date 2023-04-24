@@ -4,7 +4,7 @@ export default function RestaurantNavBar() {
   return (
     <nav className="flex text-sm sm:text-reg z-50 border-b pt-2 sticky top-0 bg-white text-gray-500 font-medium overflow-y-scroll">
       <Link
-        activeClass="text-red-700 border-red-700"
+        activeClass="text-red-700 !border-red-700"
         to="restaurant_title"
         spy={true}
         smooth={true}
@@ -15,7 +15,7 @@ export default function RestaurantNavBar() {
         Overview
       </Link>
       <Link
-        activeClass="text-red-700 border-red-700"
+        activeClass="text-red-700 !border-red-700"
         to="restaurant_images"
         spy={true}
         smooth={true}
@@ -26,7 +26,7 @@ export default function RestaurantNavBar() {
         Photos
       </Link>
       <Link
-        activeClass="text-red-700 border-red-700"
+        activeClass="text-red-700 !border-red-700"
         to="restaurant_menu"
         spy={true}
         smooth={true}
@@ -37,7 +37,7 @@ export default function RestaurantNavBar() {
         Menu
       </Link>
       <Link
-        activeClass="text-red-700 border-red-700"
+        activeClass="text-red-700 !border-red-700"
         to="restaurant_reviews"
         spy={true}
         smooth={true}
