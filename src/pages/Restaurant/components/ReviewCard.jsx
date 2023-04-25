@@ -5,7 +5,7 @@ export default function ReviewCard({ review }) {
     <div className="border-b pb-4 md:pb-7 mb-4 md:mb-7">
       <div className="flex items-center">
         <div className="w-1/6 flex flex-col items-center">
-          <div className="rounded-full bg-blue-400 w-12 h-12 md:w-16 md:h-16 flex items-center justify-center">
+          <div className="rounded-full bg-gray-700 w-12 h-12 md:w-16 md:h-16 flex items-center justify-center">
             <h2 className="text-white text-base md:text-2xl capitalize">
               {review.first_name[0]} {review.last_name[0]}
             </h2>

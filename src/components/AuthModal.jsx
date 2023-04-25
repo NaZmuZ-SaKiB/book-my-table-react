@@ -16,7 +16,7 @@ const style = {
   boxShadow: 24,
 };
 
-export default function LoginModal({ isSignin }) {
+const LoginModal = ({ isSignin }) => {
   const { loading } = useContext(GlobalState);
 
   const [open, setOpen] = useState(false);
@@ -79,9 +79,10 @@ export default function LoginModal({ isSignin }) {
       {loading ? null : (
         <button
           onClick={handleOpen}
+          type="button"
           className={`${
-            isSignin && "sm:bg-blue-400 sm:text-white"
-          } bg-white text-center  text-blue-400 border-r border-l sm:border p-1 px-4 sm:rounded sm:mr-3 text-sm md:text-reg`}
+            isSignin && "sm:bg-gray-700 sm:text-white"
+          } bg-white text-center text-gray-700 border-r border-l sm:border border-gray-700 p-1 px-4 sm:rounded sm:mr-3 text-sm md:text-reg`}
         >
           {isSignin ? "Sign in" : "Sign up"}
         </button>
@@ -121,13 +122,13 @@ export default function LoginModal({ isSignin }) {
                   onClick={handleSubmit}
                   type="submit"
                   disabled={disabled}
-                  className="uppercase bg-blue-400 w-full text-white p-3 rounded text-sm mb-2 disabled:bg-gray-200"
+                  className="uppercase bg-gray-700 w-full text-white p-3 rounded text-sm mb-2 disabled:bg-gray-200"
                 >
                   {isSignin ? "Sign In" : "Create Account"}
                 </button>
                 <button
                   onClick={handleClose}
-                  className="uppercase bg-gray-400 w-full text-white p-3 rounded text-sm mb-5"
+                  className="uppercase bg-gray-300 w-full text-gray-700 p-3 rounded text-sm mb-5"
                 >
                   Cancel
                 </button>
@@ -138,4 +139,6 @@ export default function LoginModal({ isSignin }) {
       </Modal>
     </>
   );
-}
+};
+
+export default LoginModal;

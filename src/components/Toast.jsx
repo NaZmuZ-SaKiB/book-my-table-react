@@ -36,25 +36,28 @@ const Toast = () => {
   function Transition(props) {
     return <Slide {...props} direction="left" />;
   }
-  return (
-    <Snackbar
-      anchorOrigin={{ vertical: "top", horizontal: "right" }}
-      open={open}
-      autoHideDuration={6000}
-      onClose={handleClose}
-      TransitionComponent={Transition}
-    >
-      <Alert onClose={handleClose} severity={severity} sx={{ width: "100%" }}>
-        {success && success}
-        {error && (
-          <>
-            <AlertTitle>{error?.error}</AlertTitle>
-            {error?.message}
-          </>
-        )}
-      </Alert>
-    </Snackbar>
-  );
+
+  if (!success && !error) return null;
+  else
+    return (
+      <Snackbar
+        anchorOrigin={{ vertical: "top", horizontal: "right" }}
+        open={open}
+        autoHideDuration={6000}
+        onClose={handleClose}
+        TransitionComponent={Transition}
+      >
+        <Alert onClose={handleClose} severity={severity} sx={{ width: "100%" }}>
+          {success && success}
+          {error && (
+            <>
+              <AlertTitle>{error?.error}</AlertTitle>
+              {error?.message}
+            </>
+          )}
+        </Alert>
+      </Snackbar>
+    );
 };
 
 export default Toast;

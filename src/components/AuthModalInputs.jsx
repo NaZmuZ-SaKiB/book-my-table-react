@@ -1,4 +1,4 @@
-export default function AuthModalInputs({ handleChange, isSignin }) {
+const AuthModalInputs = ({ handleChange, isSignin }) => {
   return (
     <div>
       {!isSignin && (
@@ -57,4 +57,6 @@ export default function AuthModalInputs({ handleChange, isSignin }) {
       </div>
     </div>
   );
-}
+};
+
+export default AuthModalInputs;

@@ -34,6 +34,7 @@ const Restaurant = () => {
   else {
     const {
       name,
+      main_image,
       slug,
       location,
       reviews,
@@ -45,7 +46,7 @@ const Restaurant = () => {
     } = data.data;
     return (
       <>
-        <Header name={name} location={location} />
+        <Header name={name} location={location} main_image={main_image} />
         <div className="relative flex m-auto w-full sm:w-[85%] lg:max-w-screen-lg justify-between items-start 0 -mt-8 sm:-mt-9 md:-mt-11">
           <div className="bg-white w-full lg:w-[70%] rounded p-3 pt-1 shadow">
             <RestaurantNavBar />

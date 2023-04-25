@@ -74,7 +74,7 @@ const Booking = ({ booking, refetch }) => {
             <button
               disabled={loading}
               onClick={handleClickOpen}
-              className="p-1 px-2 border border-red-600 rounded-md text-red-600 text-sm hover:bg-red-600 hover:text-white cursor-pointer"
+              className="px-1 border border-red-600 rounded-md text-red-600 text-sm hover:bg-red-600 hover:text-white cursor-pointer"
             >
               Cancel
             </button>
@@ -97,13 +97,13 @@ const Booking = ({ booking, refetch }) => {
         </DialogContent>
         <DialogActions className="border-t">
           <button
-            className="py-1 px-5 border border-gray-600 rounded-md text-gray-600 text-sm hover:bg-gray-600 hover:text-white cursor-pointer"
+            className="py-1 px-5 rounded-md text-white text-sm bg-gray-700 hover:bg-gray-600 cursor-pointer"
             onClick={handleClose}
           >
             No
           </button>
           <button
-            className="py-1 px-5 border border-red-600 bg-red-600 rounded-md text-white text-sm hover:bg-red-800 cursor-pointer"
+            className="py-1 px-5 border border-red-600 bg-red-600 rounded-md text-white text-sm hover:bg-red-500 cursor-pointer"
             autoFocus={true}
             onClick={() => handleClick(booking.id)}
           >

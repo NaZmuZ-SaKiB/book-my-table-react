@@ -71,8 +71,8 @@ const ChangePassword = () => {
     setLoading(false);
   };
   return (
-    <div>
-      <h2 className="text-center text-3xl font-bold text-blue-500 mb-5 lg:mb-10">
+    <div className="w-full max-w-screen-md mx-auto px-2">
+      <h2 className="text-center text-3xl font-bold text-gray-700 mb-5 lg:mb-10">
         Change Your Password
       </h2>
       <div className="my-3 flex justify-between text-sm">
@@ -105,7 +105,7 @@ const ChangePassword = () => {
       <button
         onClick={handleClick}
         disabled={disabled || loading}
-        className="bg-blue-500 w-full text-white p-3 rounded text-sm mb-5 disabled:bg-gray-200"
+        className="bg-gray-700 w-full text-white p-3 rounded text-sm mb-5 disabled:bg-gray-200"
       >
         {loading ? (
           <CircularProgress size={30} color="primary" />

@@ -1,64 +1,145 @@
 import React, { useContext } from "react";
-import { Link, Outlet } from "react-router-dom";
+import { Link, NavLink, Outlet } from "react-router-dom";
+
+import Box from "@mui/material/Box";
+import Divider from "@mui/material/Divider";
+import Drawer from "@mui/material/Drawer";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemButton from "@mui/material/ListItemButton";
+import ListItemText from "@mui/material/ListItemText";
+import Toolbar from "@mui/material/Toolbar";
 
 import { GlobalState } from "../../context/GlobalContext";
+import { IconButton } from "@mui/material";
 
-const Dashboard = () => {
+const Dashboard = (props) => {
   const { data } = useContext(GlobalState);
-  return (
-    <>
-      <main className="relative lg:flex w-full max-w-screen-lg mx-auto justify-between py-8 md:py-16 overflow-hidden">
-        <label
-          htmlFor="dashboard-toggle"
-          className="lg:hidden cursor-pointer border rounded py-1 px-4 m-2 inline-block text-sm"
-        >
-          Menu
-        </label>
-        <input type="checkbox" id="dashboard-toggle" hidden />
-        <div className="bg-white absolute lg:static z-50 -left-[100%] flex flex-col  w-[90%] sm:max-w-[300px] lg:w-[24.5%] h-full transition-all   border-r p-2 lg:pr-4">
-          <Link
-            className="display-inline-block py-2 bg-gray-100 mb-2 text-blue-400 rounded-md px-4 hover:bg-blue-400 cursor-pointer hover:text-white"
-            to="/"
-          >
+  const drawerWidth = 240;
+
+  const { window } = props;
+  const [mobileOpen, setMobileOpen] = React.useState(false);
+
+  const handleDrawerToggle = () => {
+    setMobileOpen(!mobileOpen);
+  };
+
+  const drawer = (
+    <div>
+      <NavLink
+        to="/"
+        className="px-4 py-2 inline-block font-bold italic underline cursor-pointer text-gray-700 text-xl md:text-2xl"
+      >
+        BookMyTable
+      </NavLink>
+      <Divider />
+      <List>
+        <ListItem disablePadding>
+          <Link className="py-2 px-4 w-full hover:bg-gray-100" to={"/"}>
             Home
           </Link>
+        </ListItem>
+        <ListItem disablePadding>
           <Link
-            className="display-inline-block py-2 bg-gray-100 mb-2 text-blue-400 rounded-md px-4 hover:bg-blue-400 cursor-pointer hover:text-white"
-            to="/dashboard/my-bookings"
+            className="py-2 px-4 w-full hover:bg-gray-100"
+            to={"/dashboard/my-bookings"}
           >
             Bookings
           </Link>
+        </ListItem>
+        <ListItem disablePadding>
           <Link
-            className="display-inline-block py-2 bg-gray-100 mb-2 text-blue-400 rounded-md px-4 hover:bg-blue-400 cursor-pointer hover:text-white"
-            to="/dashboard/my-account"
+            className="py-2 px-4 w-full hover:bg-gray-100"
+            to={"/dashboard/my-account"}
           >
-            Account Info
+            Account
           </Link>
+        </ListItem>
+        <ListItem disablePadding>
           <Link
-            className="display-inline-block py-2 bg-gray-100 mb-2 text-blue-400 rounded-md px-4 hover:bg-blue-400 cursor-pointer hover:text-white"
-            to="/dashboard/add-restaurant"
+            className="py-2 px-4 w-full hover:bg-gray-100"
+            to={"/dashboard/add-restaurant"}
           >
             <div className="flex items-center">
-              <span className="text-white bg-blue-400 rounded-sm flex items-center justify-center h-5 w-5 mr-2">
+              <span className="text-white bg-gray-700 rounded-sm flex items-center justify-center h-5 w-5 mr-2">
                 +
               </span>
               Add Restaurant
             </div>
           </Link>
-          {data?.role === "OWNER" && (
-            <Link
-              className="display-inline-block py-2 bg-gray-100 mb-2 text-blue-400 rounded-md px-4 hover:bg-blue-400 cursor-pointer hover:text-white"
-              to="/dashboard/my-restaurants"
-            >
-              Restaurants
-            </Link>
-          )}
-        </div>
-        <div className="w-full h-auto px-2 overflow-y-scroll lg:w-[74.5%]">
-          <Outlet />
-        </div>
-      </main>
-    </>
+        </ListItem>
+      </List>
+      {data?.role === "OWNER" && (
+        <>
+          <Divider />
+          <List>
+            <ListItem disablePadding>
+              <Link
+                className="py-2 px-4 w-full hover:bg-gray-100"
+                to={"/dashboard/my-restaurants"}
+              >
+                Restaurants
+              </Link>
+            </ListItem>
+          </List>
+        </>
+      )}
+    </div>
+  );
+
+  const container =
+    window !== undefined ? () => window().document.body : undefined;
+
+  return (
+    <div className="flex">
+      <Box
+        component="nav"
+        sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
+        aria-label="mailbox folders"
+      >
+        {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
+        <Drawer
+          container={container}
+          variant="temporary"
+          open={mobileOpen}
+          onClose={handleDrawerToggle}
+          ModalProps={{
+            keepMounted: true, // Better open performance on mobile.
+          }}
+          sx={{
+            display: { xs: "block", sm: "none" },
+            "& .MuiDrawer-paper": {
+              boxSizing: "border-box",
+              width: drawerWidth,
+            },
+          }}
+        >
+          {drawer}
+        </Drawer>
+        <Drawer
+          variant="permanent"
+          sx={{
+            display: { xs: "none", sm: "block" },
+            "& .MuiDrawer-paper": {
+              boxSizing: "border-box",
+              width: drawerWidth,
+            },
+          }}
+          open
+        >
+          {drawer}
+        </Drawer>
+      </Box>
+
+      <Box
+        className="absolute top-10 left-2 cursor-pointer"
+        onClick={handleDrawerToggle}
+        sx={{ display: { sm: "none" } }}
+      >
+        &#9776;
+      </Box>
+      <Outlet />
+    </div>
   );
 };
 

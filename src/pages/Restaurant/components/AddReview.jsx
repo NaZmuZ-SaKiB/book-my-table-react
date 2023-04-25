@@ -100,7 +100,7 @@ export default function AddReview({ slug, refetch }) {
         <button
           onClick={handleClick}
           disabled={disabled || loading}
-          className="bg-blue-500 w-full text-white p-3 rounded text-sm mb-5 disabled:bg-gray-200"
+          className="bg-gray-700 w-full text-white p-3 rounded text-sm mb-5 disabled:bg-gray-200"
         >
           {loading ? (
             <CircularProgress size={30} color="primary" />

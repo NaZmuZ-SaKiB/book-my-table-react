@@ -51,7 +51,7 @@ const Search = () => {
     queryFn: async () => await getFilteredRestaurants(),
   });
   return (
-    <div className="pt-8 sm:pt-10 md:pt-12">
+    <>
       <Header />
       <div className="md:flex pt-2 pb-4 px-2 m-auto w-full md:max-w-screen-md justify-between items-start relative">
         <label className="md:hidden" htmlFor="filter-toggle">
@@ -88,7 +88,7 @@ const Search = () => {
           </div>
         )}
       </div>
-    </div>
+    </>
   );
 };
 

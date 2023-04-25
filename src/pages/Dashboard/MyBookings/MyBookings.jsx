@@ -27,13 +27,13 @@ const MyBookings = () => {
     const { data: bookings } = data;
 
     return (
-      <div>
+      <div className="mx-auto w-full max-w-screen-md px-2">
         {bookings.length ? (
           <>
-            <h2 className="text-center text-3xl font-bold text-blue-500 mb-5 lg:mb-10">
+            <h2 className="text-center text-3xl font-bold text-gray-700 mb-5 lg:mb-10">
               Your Bookings
             </h2>
-            <div className="overflow-auto  rounded-md shadow w-full max-w-screen-md mx-auto">
+            <div className="overflow-auto rounded-md shadow w-full mx-auto">
               <table className="table-auto w-full whitespace-nowrap">
                 <thead className="bg-gray-50 border-b-2 border-gray-200 h-10">
                   <tr>

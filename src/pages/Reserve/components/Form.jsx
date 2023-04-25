@@ -73,7 +73,7 @@ export default function Form({ slug, partySize, date }) {
       {resData ? (
         <Link
           to="/"
-          className="bg-blue-600 text-white p-2 w-[660px] rounded mt-2 inline-block text-center"
+          className="bg-gray-700 text-white p-2 w-[660px] rounded mt-2 inline-block text-center"
         >
           Back to Home
         </Link>
@@ -132,7 +132,7 @@ export default function Form({ slug, partySize, date }) {
             onClick={handleClick}
             disabled={disabled || loading}
             type="submit"
-            className="bg-blue-400 w-full p-3 text-white font-bold rounded disabled:bg-gray-300"
+            className="bg-gray-700 w-full p-3 text-white font-bold rounded disabled:bg-gray-200"
           >
             {loading ? (
               <CircularProgress color="inherit" />
@@ -142,7 +142,7 @@ export default function Form({ slug, partySize, date }) {
           </button>
           <Link
             to="/"
-            className="bg-gray-600 text-white p-2 w-full rounded mt-2 inline-block text-center cursor-pointer"
+            className="bg-gray-300 text-gray-700 p-2 w-full rounded mt-2 inline-block text-center cursor-pointer"
           >
             Cancel
           </Link>

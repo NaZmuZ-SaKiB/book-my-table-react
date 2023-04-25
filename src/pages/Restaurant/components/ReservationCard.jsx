@@ -104,7 +104,7 @@ export default function ReservationCard({ openTime, closeTime, slug }) {
         <button
           disabled={loading}
           onClick={handleClick}
-          className="bg-red-600 rounded w-full px-4 text-white font-bold h-12"
+          className="bg-orange-600 rounded w-full px-4 text-white font-bold h-12"
         >
           {loading ? (
             <CircularProgress color="inherit" size={30} />
@@ -122,7 +122,7 @@ export default function ReservationCard({ openTime, closeTime, slug }) {
                 <Link
                   key={i}
                   to={`/reserve/${slug}?date=${day}T${time.time}&partySize=${partySize}`}
-                  className="bg-red-600 cursor-pointer p-2 text-center text-white mb-3 rounded mr-3"
+                  className="bg-orange-600 cursor-pointer p-2 text-center text-white mb-3 rounded mr-3"
                 >
                   <p className="text-sm font-bold">
                     {convertToDisplayTime(time.time)}

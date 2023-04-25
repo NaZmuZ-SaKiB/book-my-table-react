@@ -16,7 +16,7 @@ const SearchBar = () => {
         onClick={() => {
           location && navigate(`/search?city=${location}`);
         }}
-        className="rounded bg-red-600 px-9 py-2 text-white max-w-[200px]"
+        className="rounded bg-orange-600 px-9 py-2 text-white max-w-[200px]"
       >
         {"Let's go"}
       </button>
