@@ -19,8 +19,6 @@ const GlobalContext = ({ children }) => {
         { withCredentials: true }
       );
 
-      console.log(res.data);
-
       if (res.data.status === "success") {
         setGlobalState({
           data: res.data.data,

@@ -1,17 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
 import { CircularProgress } from "@mui/material";
-import axios from "axios";
+
+import getMyBookings from "../../../queries/getMyBookings";
 import Booking from "./Booking";
 
 const MyBookings = () => {
-  const getMyBookings = async () => {
-    const { data } = await axios.get(
-      `${import.meta.env.VITE_BASE_API_URL}/booking/my`,
-      { withCredentials: true }
-    );
-    return data;
-  };
-
   const { data, isInitialLoading, refetch } = useQuery({
     queryKey: ["getMyBookings"],
     queryFn: async () => await getMyBookings(),

@@ -1,8 +1,8 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
 
+import getRestaurantBySlug from "../../queries/getRestaurantBySlug";
 import Header from "./components/Header";
 import RestaurantNavBar from "./components/RestaurantNavBar";
 import Title from "./components/Title";
@@ -17,19 +17,11 @@ import Menu from "../../components/Menu";
 const Restaurant = () => {
   const params = useParams();
 
-  const getRestaurantBySlug = async () => {
-    const { data } = await axios.get(
-      `${import.meta.env.VITE_BASE_API_URL}/restaurant/${params.slug}`
-    );
-    return data;
-  };
-
   const { data, isInitialLoading, refetch } = useQuery({
-    queryKey: ["getRestaurantBySlug", params.slug],
-    queryFn: async () => await getRestaurantBySlug(),
+    queryKey: ["getRestaurantBySlug", params.slug, "restaurantPage"],
+    queryFn: async () => await getRestaurantBySlug(params.slug),
   });
 
-  console.log(data?.data);
   if (isInitialLoading) return <div>Loading...</div>;
   else {
     const {

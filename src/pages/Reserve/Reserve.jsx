@@ -1,10 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
 import { useParams, useSearchParams } from "react-router-dom";
 
+import getRestaurantBySlug from "../../queries/getRestaurantBySlug";
 import Header from "./components/Header";
 import Form from "./components/Form";
-import { useEffect } from "react";
 
 const Reserve = () => {
   const params = useParams();
@@ -12,16 +11,9 @@ const Reserve = () => {
   const date = searchParams.get("date");
   const partySize = searchParams.get("partySize");
 
-  const getRestaurantBySlug = async () => {
-    const { data } = await axios.get(
-      `${import.meta.env.VITE_BASE_API_URL}/restaurant/${params.slug}`
-    );
-    return data;
-  };
-
   const { data, isInitialLoading } = useQuery({
-    queryKey: ["getRestaurantBySlug", params.slug],
-    queryFn: async () => await getRestaurantBySlug(),
+    queryKey: ["getRestaurantBySlug", params.slug, "reservePage"],
+    queryFn: async () => await getRestaurantBySlug(params.slug),
   });
 
   if (isInitialLoading) return <div>Loading...</div>;

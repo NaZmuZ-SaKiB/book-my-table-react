@@ -1,19 +1,12 @@
 import React from "react";
 import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
 
 import Header from "../../components/Header";
 import RestaurantCard from "../..//components/RestaurantCard";
 import RestaurantLoading from "./components/RestaurantLoading";
+import getAllRestaurants from "../../queries/getAllRestaurants";
 
 const Home = () => {
-  const getAllRestaurants = async () => {
-    const { data } = await axios.get(
-      `${import.meta.env.VITE_BASE_API_URL}/restaurant`
-    );
-    return data;
-  };
-
   const { data: restaurants, isInitialLoading } = useQuery({
     queryKey: ["getAllRestaurants", "homePage"],
     queryFn: async () => await getAllRestaurants(),

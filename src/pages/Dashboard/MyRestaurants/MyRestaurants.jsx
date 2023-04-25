@@ -1,18 +1,10 @@
-import { CircularProgress } from "@mui/material";
-import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
+import { CircularProgress } from "@mui/material";
+
+import getMyRestaurants from "../../../queries/getMyRestaurants";
 import Restaurant from "./Restaurant";
 
 const MyRestaurants = () => {
-  const getMyRestaurants = async () => {
-    const { data } = await axios.get(
-      `${import.meta.env.VITE_BASE_API_URL}/restaurant/my`,
-      { withCredentials: true }
-    );
-
-    return data;
-  };
-
   const { data, isInitialLoading } = useQuery({
     queryKey: ["my-restaurants"],
     queryFn: async () => await getMyRestaurants(),

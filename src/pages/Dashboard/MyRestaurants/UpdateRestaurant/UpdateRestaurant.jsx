@@ -4,6 +4,7 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import { CircularProgress } from "@mui/material";
 import axios from "axios";
 
+import getRestaurantBySlug from "../../../../queries/getRestaurantBySlug";
 import { GlobalState } from "../../../../context/GlobalContext";
 import { times } from "../../../../data/times";
 import Menu from "../../../../components/Menu";
@@ -19,15 +20,8 @@ const UpdateRestaurant = () => {
 
   const navigate = useNavigate();
 
-  const getRestaurantBySlug = async (slug) => {
-    const { data } = await axios.get(
-      `${import.meta.env.VITE_BASE_API_URL}/restaurant/${slug}`
-    );
-    return data;
-  };
-
   const { data, isInitialLoading } = useQuery({
-    queryKey: ["getRestaurantBySlug", "updateRestaurant", params.slug],
+    queryKey: ["getRestaurantBySlug", params.slug, "updateRestaurantPage"],
     queryFn: async () => await getRestaurantBySlug(params.slug),
   });
 
