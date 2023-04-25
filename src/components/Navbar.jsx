@@ -47,14 +47,14 @@ const Navbar = () => {
         {!loading && data ? (
           <>
             <Link
-              href="/dashboard/my-account"
+              to="/dashboard/my-account"
               className="bg-white text-center text-sm text-gray-700  p-1 px-4 border-r border-l"
             >
               Dashboard
             </Link>
             <Link
               href="/"
-              className="bg-white text-center text-sm text-gray-700  p-1 px-4 border-r border-l"
+              className="bg-white text-center text-sm text-gray-700  p-1 px-4"
             >
               <div className="fixed bottom-0 left-[50%] translate-x-[-50%] bg-white h-10 w-10 rounded-full flex items-center justify-center border border-gray-700">
                 <img
@@ -75,7 +75,7 @@ const Navbar = () => {
           <>
             <AuthModel isSignin={true} />
             <Link
-              href="/"
+              to="/"
               className="bg-white text-center text-sm text-gray-700  p-1 px-4"
             >
               <div className="fixed bottom-0 left-[50%] translate-x-[-50%] bg-white h-10 w-10 rounded-full flex items-center justify-center border border-gray-700">
