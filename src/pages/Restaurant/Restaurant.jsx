@@ -13,6 +13,7 @@ import Reviews from "./components/Reviews";
 import AddReview from "./components/AddReview";
 import ReservationCard from "./components/ReservationCard";
 import Menu from "../../components/Menu";
+import Loader from "../../components/Loader";
 
 const Restaurant = () => {
   const params = useParams();
@@ -22,7 +23,7 @@ const Restaurant = () => {
     queryFn: async () => await getRestaurantBySlug(params.slug),
   });
 
-  if (isInitialLoading) return <div>Loading...</div>;
+  if (isInitialLoading) return <Loader />;
   else {
     const {
       name,

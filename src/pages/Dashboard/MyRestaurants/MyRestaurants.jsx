@@ -3,6 +3,7 @@ import { CircularProgress } from "@mui/material";
 
 import getMyRestaurants from "../../../queries/getMyRestaurants";
 import Restaurant from "./Restaurant";
+import Loader from "../../../components/Loader";
 
 const MyRestaurants = () => {
   const { data, isInitialLoading } = useQuery({
@@ -10,13 +11,8 @@ const MyRestaurants = () => {
     queryFn: async () => await getMyRestaurants(),
   });
 
-  if (isInitialLoading) {
-    return (
-      <div className="w-full flex justify-center">
-        <CircularProgress color="primary" />
-      </div>
-    );
-  } else {
+  if (isInitialLoading) return <Loader />;
+  else {
     const { data: restaurants } = data;
     return (
       <div className="mx-auto w-full max-w-screen-md px-2">

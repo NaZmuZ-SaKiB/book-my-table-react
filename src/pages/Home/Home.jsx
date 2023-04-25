@@ -2,7 +2,7 @@ import React from "react";
 import { useQuery } from "@tanstack/react-query";
 
 import Header from "../../components/Header";
-import RestaurantCard from "../..//components/RestaurantCard";
+import RestaurantCard from "./components/RestaurantCard";
 import RestaurantLoading from "./components/RestaurantLoading";
 import getAllRestaurants from "../../queries/getAllRestaurants";
 

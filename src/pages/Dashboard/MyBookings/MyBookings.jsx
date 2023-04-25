@@ -3,6 +3,7 @@ import { CircularProgress } from "@mui/material";
 
 import getMyBookings from "../../../queries/getMyBookings";
 import Booking from "./Booking";
+import Loader from "../../../components/Loader";
 
 const MyBookings = () => {
   const { data, isInitialLoading, refetch } = useQuery({
@@ -10,13 +11,8 @@ const MyBookings = () => {
     queryFn: async () => await getMyBookings(),
   });
 
-  if (isInitialLoading) {
-    return (
-      <div className="w-full flex justify-center">
-        <CircularProgress color="primary" />
-      </div>
-    );
-  } else {
+  if (isInitialLoading) return <Loader />;
+  else {
     const { data: bookings } = data;
 
     return (

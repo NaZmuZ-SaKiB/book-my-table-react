@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useParams, useSearchParams } from "react-router-dom";
 
 import getRestaurantBySlug from "../../queries/getRestaurantBySlug";
+import Loader from "../../components/Loader";
 import Header from "./components/Header";
 import Form from "./components/Form";
 
@@ -16,7 +17,7 @@ const Reserve = () => {
     queryFn: async () => await getRestaurantBySlug(params.slug),
   });
 
-  if (isInitialLoading) return <div>Loading...</div>;
+  if (isInitialLoading) return <Loader />;
   else {
     const { name, main_image, slug } = data.data;
     return (

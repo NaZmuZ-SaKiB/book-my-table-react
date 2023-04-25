@@ -1,7 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
-import { useSearchParams } from "react-router-dom";
-import axios from "axios";
 import { useEffect } from "react";
+
+import getAllLocationAndCuisine from "../../../queries/getAllLocationAndCuisine";
+import SearchSiceBarLoading from "./SearchSiceBarLoading";
 
 const prices = [
   { name: "CHEAP", value: "$" },
@@ -14,22 +15,12 @@ const SearchSideBar = ({ searchParams, setSearchparams }) => {
 
   useEffect(() => {}, []);
 
-  const getAllLocationAndCuisine = async () => {
-    const locationRes = await axios.get(
-      `${import.meta.env.VITE_BASE_API_URL}/location`
-    );
-    const cuisineRes = await axios.get(
-      `${import.meta.env.VITE_BASE_API_URL}/cuisine`
-    );
-
-    return { locationData: locationRes.data, cuisineData: cuisineRes.data };
-  };
   const { data, isInitialLoading } = useQuery({
-    queryKey: ["getAllLocation", "getAllCuisine", "searchPage"],
+    queryKey: ["getAllLocation", "getAllCuisine", "searchSideBar"],
     queryFn: async () => await getAllLocationAndCuisine(),
   });
 
-  if (isInitialLoading) return null;
+  if (isInitialLoading) return <SearchSiceBarLoading />;
   else
     return (
       <div className="pr-2 w-full">

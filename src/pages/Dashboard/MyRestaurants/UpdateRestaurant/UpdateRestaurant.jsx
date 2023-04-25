@@ -8,6 +8,7 @@ import getRestaurantBySlug from "../../../../queries/getRestaurantBySlug";
 import { GlobalState } from "../../../../context/GlobalContext";
 import { times } from "../../../../data/times";
 import Menu from "../../../../components/Menu";
+import Loader from "../../../../components/Loader";
 
 const UpdateRestaurant = () => {
   const params = useParams();
@@ -120,12 +121,11 @@ const UpdateRestaurant = () => {
     setLoading(false);
   };
 
-  if (isInitialLoading) return <div>Loading...</div>;
+  if (isInitialLoading) return <Loader />;
   else {
     const {
       name,
       description,
-      images,
       open_time,
       close_time,
       items,

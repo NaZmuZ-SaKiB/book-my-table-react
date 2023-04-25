@@ -7,6 +7,7 @@ import RestaurantCard from "./components/RestaurantCard";
 import { useQuery } from "@tanstack/react-query";
 import { useEffect } from "react";
 import getFilteredRestaurants from "../../queries/getFilteredRestaurants";
+import RestaurantCardLoading from "./components/RestaurantCardLoading";
 
 const Search = () => {
   const [searchParams, setSearchparams] = useSearchParams();
@@ -46,7 +47,7 @@ const Search = () => {
         </div>
 
         {isInitialLoading ? (
-          "Loading..."
+          <RestaurantCardLoading />
         ) : (
           <div className="w-full">
             {data?.data?.length ? (
