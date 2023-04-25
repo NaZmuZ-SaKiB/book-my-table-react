@@ -82,7 +82,7 @@ const LoginModal = ({ isSignin }) => {
           type="button"
           className={`${
             isSignin && "sm:bg-gray-700 sm:text-white"
-          } bg-white text-center text-gray-700 border-r border-l sm:border border-gray-700 p-1 px-4 sm:rounded sm:mr-3 text-sm md:text-reg`}
+          } bg-white text-center text-gray-700 sm:border border-gray-700 p-1 px-4 sm:rounded sm:mr-3 text-sm md:text-reg`}
         >
           {isSignin ? "Sign in" : "Sign up"}
         </button>
