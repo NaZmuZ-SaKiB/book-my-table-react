@@ -73,7 +73,7 @@ export default function Form({ slug, partySize, date }) {
       {resData ? (
         <Link
           to="/"
-          className="bg-gray-700 text-white p-2 w-[660px] rounded mt-2 inline-block text-center"
+          className="bg-gray-700 text-white p-2 w-full rounded mt-2 inline-block text-center"
         >
           Back to Home
         </Link>
@@ -147,7 +147,7 @@ export default function Form({ slug, partySize, date }) {
             Cancel
           </Link>
 
-          <p className="mt-4 text-sm">
+          <p className="mt-4 text-sm bg-white p-3 rounded shadow">
             By clicking “Complete reservation” you agree to the BookMyTable
             Terms of Use and Privacy Policy. Standard text message rates may
             apply. You may opt out of receiving text messages at any time.

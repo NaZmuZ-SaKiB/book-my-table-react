@@ -11,7 +11,7 @@ const RestaurantLoading = () => {
           <Card
             key={`restaurant_card_loading_${i}`}
             sx={{ width: 256, m: 2, boxShadow: "none" }}
-            className="border rounded"
+            className="shadow rounded"
           >
             <Skeleton
               sx={{ height: 145 }}

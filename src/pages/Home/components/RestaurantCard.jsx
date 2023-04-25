@@ -15,7 +15,7 @@ const RestaurantCard = ({ restaurant }) => {
 
   const avgRating = getEvgRating(reviews);
   return (
-    <div className="w-64 h-72 m-3 rounded overflow-hidden border cursor-pointer">
+    <div className="w-64 h-72 m-3 bg-white rounded overflow-hidden shadow cursor-pointer">
       <Link to={`/restaurant/${slug}`}>
         <img src={main_image} alt="" className="w-full h-36" />
         <div className="p-2">

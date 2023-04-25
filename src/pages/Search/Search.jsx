@@ -27,13 +27,13 @@ const Search = () => {
       <Header />
       <div className="md:flex pt-2 pb-4 px-2 m-auto w-full md:max-w-screen-md justify-between items-start relative">
         <label className="md:hidden" htmlFor="filter-toggle">
-          <p className="px-4 py-1 my-2 inline-block text-sm rounded border cursor-pointer font-medium">
+          <p className="px-4 py-1 my-2 bg-white inline-block text-sm rounded border cursor-pointer font-medium">
             Filters
           </p>
         </label>
         <input hidden type="checkbox" id="filter-toggle" />
 
-        <div className="absolute z-50 top-0 border-r -left-[100%] md:static  pt-2 bg-white w-[90%] max-w-[250px] h-full  transition-all">
+        <div className="absolute z-50 top-0 -left-[100%] md:static  pt-2 bg-white w-[90%] max-w-[250px] h-full  transition-all">
           <SearchSideBar
             setSearchparams={setSearchparams}
             searchParams={searchParams}
@@ -49,7 +49,7 @@ const Search = () => {
         {isInitialLoading ? (
           <RestaurantCardLoading />
         ) : (
-          <div className="w-full">
+          <div className="w-full md:pl-2">
             {data?.data?.length ? (
               data?.data.map((restaurant) => (
                 <RestaurantCard key={restaurant.id} restaurant={restaurant} />

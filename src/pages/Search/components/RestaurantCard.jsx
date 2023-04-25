@@ -22,13 +22,13 @@ export default function RestaurantCard({ restaurant }) {
   }
 
   return (
-    <div className="border-b flex pb-5">
+    <div className="flex my-4 bg-white rounded shadow">
       <img
         src={main_image}
         alt=""
         className="w-24 sm:w-44 object-cover rounded"
       />
-      <div className="pl-3 sm:pl-5">
+      <div className="pl-3 sm:pl-5 py-2">
         <h2 className="text-2xl sm:text-3xl">{name}</h2>
         <div className="flex items-start">
           <div className="flex mb-2">
@@ -36,15 +36,15 @@ export default function RestaurantCard({ restaurant }) {
           </div>
           <p className="ml-2 text-sm">{ratingText}</p>
         </div>
-        <div className="mb-3 sm:mb-6 md:mb-9">
+        <div className="mb-4">
           <div className="font-light flex text-reg">
             <Price price={price} />
             <p className="mr-4">{cuisine.name}</p>
             <p className="mr-4">{location.name}</p>
           </div>
         </div>
-        <div className="text-red-600">
-          <Link href={`/restaurant/${slug}`}>View more information</Link>
+        <div className="text-red-600 hover:underline">
+          <Link to={`/restaurant/${slug}`}>View more information</Link>
         </div>
       </div>
     </div>

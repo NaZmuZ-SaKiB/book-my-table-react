@@ -133,7 +133,7 @@ const UpdateRestaurant = () => {
       price,
     } = data.data;
     return (
-      <div className="w-full max-w-screen-md mx-auto px-2">
+      <div className="w-full max-w-screen-md mx-auto p-2">
         {data ? (
           <>
             <h2 className="text-center text-3xl font-bold text-gray-700 mb-5 lg:mb-10">
@@ -250,7 +250,7 @@ const UpdateRestaurant = () => {
               className="bg-gray-700 w-full text-white p-3 rounded text-sm mb-5 disabled:bg-gray-200"
             >
               {loading ? (
-                <CircularProgress size={30} color="primary" />
+                <CircularProgress size={30} color="inherit" />
               ) : (
                 "Save Changes"
               )}

@@ -6,7 +6,7 @@ const Header = ({ image, name, date, partySize }) => {
   displayDay = displayDay.join(" ");
 
   return (
-    <div>
+    <div className="bg-white p-3 rounded shadow">
       <h3 className="font-bold">{"You're almost done!"}</h3>
       <div className="mt-5 flex items-center">
         <img

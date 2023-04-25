@@ -17,7 +17,7 @@ import AddItem from "./pages/Dashboard/AddItem/AddItem";
 
 function App() {
   return (
-    <main className="max-w-screen-2xl m-auto bg-white">
+    <main className="max-w-screen-2xl m-auto bg-gray-50">
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />

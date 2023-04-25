@@ -23,9 +23,9 @@ const SearchSideBar = ({ searchParams, setSearchparams }) => {
   if (isInitialLoading) return <SearchSiceBarLoading />;
   else
     return (
-      <div className="pr-2 w-full">
-        <div className="border-b pb-4 flex flex-col">
-          <h1 className="mb-2">Region</h1>
+      <div className="pr-2 w-full bg-gray-50">
+        <div className="p-4 bg-white flex flex-col rounded shadow">
+          <h1 className="mb-2 font-medium text-lg">Region</h1>
           {data?.locationData?.data.map((location) => (
             <p
               key={location.id + location.name}
@@ -38,8 +38,8 @@ const SearchSideBar = ({ searchParams, setSearchparams }) => {
             </p>
           ))}
         </div>
-        <div className="border-b pb-4 mt-3 flex flex-col">
-          <h1 className="mb-2">Cuisine</h1>
+        <div className="p-4 bg-white shadow rounded mt-3 flex flex-col">
+          <h1 className="mb-2 font-medium text-lg">Cuisine</h1>
           {data?.cuisineData?.data.map((cuisine) => (
             <p
               key={cuisine.id + cuisine.name}
@@ -52,9 +52,9 @@ const SearchSideBar = ({ searchParams, setSearchparams }) => {
             </p>
           ))}
         </div>
-        <div className="mt-3 pb-4">
-          <h1 className="mb-2">Price</h1>
-          <div className="flex pb-4 border-b">
+        <div className="p-4 bg-white shadow rounded mt-3">
+          <h1 className="mb-2 font-medium text-lg">Price</h1>
+          <div className="flex">
             {prices.map((price) => (
               <p
                 key={price.value}
@@ -67,14 +67,14 @@ const SearchSideBar = ({ searchParams, setSearchparams }) => {
               </p>
             ))}
           </div>
-          <p
-            to="/search"
-            className="py-2 px-4 text-reg rounded-full cursor-pointer bg-red-700 text-white mt-3 inline-block"
-            onClick={() => setSearchparams({})}
-          >
-            Reset Filters
-          </p>
         </div>
+        <p
+          to="/search"
+          className="py-2 px-4 text-reg rounded-full cursor-pointer bg-red-700 text-white mt-3 inline-block"
+          onClick={() => setSearchparams({})}
+        >
+          Reset Filters
+        </p>
       </div>
     );
 };

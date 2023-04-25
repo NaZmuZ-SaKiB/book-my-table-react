@@ -1,5 +1,4 @@
 import { useQuery } from "@tanstack/react-query";
-import { CircularProgress } from "@mui/material";
 
 import getMyBookings from "../../../queries/getMyBookings";
 import Booking from "./Booking";
@@ -16,14 +15,14 @@ const MyBookings = () => {
     const { data: bookings } = data;
 
     return (
-      <div className="mx-auto w-full max-w-screen-md px-2">
+      <div className="mx-auto w-full max-w-screen-md p-2">
         {bookings.length ? (
           <>
             <h2 className="text-center text-3xl font-bold text-gray-700 mb-5 lg:mb-10">
               Your Bookings
             </h2>
             <div className="overflow-auto rounded-md shadow w-full mx-auto">
-              <table className="table-auto w-full whitespace-nowrap">
+              <table className="table-auto w-full whitespace-nowrap bg-white">
                 <thead className="bg-gray-50 border-b-2 border-gray-200 h-10">
                   <tr>
                     <th className="px-2 text-sm sm:text-reg font-medium">
