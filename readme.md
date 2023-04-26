@@ -1,4 +1,4 @@
-# [Book My Table React](book-my-table-react.netlify.app)
+# [Book My Table React](https://book-my-table-react.netlify.app)
 
 This is a restaurant booking app. Users can visit different restaurants and reserve a table at a certain time. A user can see his/her upcoming bookings and can cancel the booking in the dashboard. Also a user can update his/her account info.
 
