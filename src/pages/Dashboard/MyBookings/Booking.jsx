@@ -8,11 +8,14 @@ import {
   DialogTitle,
 } from "@mui/material";
 import axios from "axios";
+import { useQueryClient } from "@tanstack/react-query";
 
 import { GlobalState } from "../../../context/GlobalContext";
 import { convertToDisplayTime } from "../../../../utils/convertToDisplayTime";
 
-const Booking = ({ booking, refetch }) => {
+const Booking = ({ booking }) => {
+  const queryClient = useQueryClient();
+
   const [day, time] = booking.booking_time.split("T");
   const [loading, setLoading] = useState(false);
   const [open, setOpen] = useState(false);
@@ -41,7 +44,7 @@ const Booking = ({ booking, refetch }) => {
         loading: false,
         error: null,
       });
-      refetch();
+      queryClient.invalidateQueries("getMyBookings");
     } else {
       setGlobalState({
         data,

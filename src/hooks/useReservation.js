@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useContext, useState } from "react";
+import { useQueryClient } from "@tanstack/react-query";
 
 import { GlobalState } from "../context/GlobalContext";
 
@@ -8,6 +9,8 @@ const useReservation = () => {
   const [resData, setresData] = useState(null);
 
   const { data, error, success, setGlobalState } = useContext(GlobalState);
+
+  const queryClient = useQueryClient();
 
   const createReservation = async ({
     slug,
@@ -50,6 +53,7 @@ const useReservation = () => {
           error: null,
           loading: false,
         });
+        queryClient.invalidateQueries("getMyBookings");
       } else {
         setresData(null);
         setGlobalState({

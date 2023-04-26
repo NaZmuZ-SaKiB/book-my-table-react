@@ -1,5 +1,5 @@
 import { useContext, useEffect, useRef, useState } from "react";
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { CircularProgress } from "@mui/material";
 import axios from "axios";
@@ -16,6 +16,8 @@ import FallbackImage from "../../../../components/FallbackImage";
 const UpdateRestaurant = () => {
   const params = useParams();
   const { data: userData, setGlobalState } = useContext(GlobalState);
+
+  const queryClient = useQueryClient();
 
   const [inputs, setInputs] = useState(null);
   const [images, setImages] = useState([]);
@@ -96,6 +98,7 @@ const UpdateRestaurant = () => {
           error: null,
           success: res.data?.message,
         });
+        queryClient.invalidateQueries("getAllRestaurants");
         navigate(`/dashboard/my-restaurant/${res.data?.data.slug}`);
       } else {
         setGlobalState({

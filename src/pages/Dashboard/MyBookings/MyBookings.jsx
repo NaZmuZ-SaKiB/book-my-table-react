@@ -5,8 +5,8 @@ import Booking from "./Booking";
 import Loader from "../../../components/Loader";
 
 const MyBookings = () => {
-  const { data, isInitialLoading, refetch } = useQuery({
-    queryKey: ["getMyBookings"],
+  const { data, isInitialLoading } = useQuery({
+    queryKey: ["getMyBookings", "myBookingsPage"],
     queryFn: async () => await getMyBookings(),
   });
 
@@ -44,7 +44,6 @@ const MyBookings = () => {
                     <Booking
                       key={`My booking ${booking.id}`}
                       booking={booking}
-                      refetch={refetch}
                     />
                   ))}
                 </tbody>
