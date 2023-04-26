@@ -6,6 +6,7 @@ import Restaurant from "./pages/Restaurant/Restaurant";
 import Navbar from "./components/Navbar";
 import Toast from "./components/Toast";
 import Reserve from "./pages/Reserve/Reserve";
+import ProtectedRoutes from "./components/ProtectedRoutes";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import MyAccount from "./pages/Dashboard/MyAccount/MyAccount";
 import MyBookings from "./pages/Dashboard/MyBookings/MyBookings";
@@ -24,20 +25,28 @@ function App() {
         <Route path="/search" element={<Search />} />
         <Route path="/restaurant/:slug" element={<Restaurant />} />
         <Route path="/reserve/:slug" element={<Reserve />} />
-        <Route path="/dashboard" element={<Dashboard />}>
-          <Route path="/dashboard/my-account" element={<MyAccount />} />
-          <Route path="/dashboard/my-bookings" element={<MyBookings />} />
-          <Route
-            path="/dashboard/change-password"
-            element={<ChangePassword />}
-          />
-          <Route path="/dashboard/add-restaurant" element={<AddRestaurant />} />
-          <Route path="/dashboard/my-restaurants" element={<MyRestaurants />} />
-          <Route
-            path="/dashboard/my-restaurant/:slug"
-            element={<UpdateRestaurant />}
-          />
-          <Route path="/dashboard/add-item/:slug" element={<AddItem />} />
+        <Route element={<ProtectedRoutes />}>
+          <Route element={<Dashboard />}>
+            <Route path="/dashboard/my-account" element={<MyAccount />} />
+            <Route path="/dashboard/my-bookings" element={<MyBookings />} />
+            <Route
+              path="/dashboard/change-password"
+              element={<ChangePassword />}
+            />
+            <Route
+              path="/dashboard/add-restaurant"
+              element={<AddRestaurant />}
+            />
+            <Route
+              path="/dashboard/my-restaurants"
+              element={<MyRestaurants />}
+            />
+            <Route
+              path="/dashboard/my-restaurant/:slug"
+              element={<UpdateRestaurant />}
+            />
+            <Route path="/dashboard/add-item/:slug" element={<AddItem />} />
+          </Route>
         </Route>
         <Route path="*" element={<h1>404</h1>} />
       </Routes>

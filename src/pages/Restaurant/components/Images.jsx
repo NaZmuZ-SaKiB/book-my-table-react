@@ -1,3 +1,8 @@
+import { Img } from "react-image";
+
+import ImageLoader from "../../../components/ImageLoader";
+import FallbackImage from "../../../components/FallbackImage";
+
 export default function Images({ images }) {
   return (
     <div id="restaurant_images">
@@ -6,11 +11,14 @@ export default function Images({ images }) {
       </h2>
       <div className="flex flex-wrap">
         {images.map((image, i) => (
-          <img
+          <Img
             key={i + Math.random()}
-            className="w-45 md:w-56 h-44 mr-1 mb-1"
+            className="w-45 md:w-56 h-44 mr-1 mb-1 object-cover"
             src={image}
-            alt=""
+            loader={<ImageLoader height={175} width={220} />}
+            unloader={
+              <FallbackImage classes="w-45 md:w-56 h-44 mr-1 mb-1 object-cover" />
+            }
           />
         ))}
       </div>

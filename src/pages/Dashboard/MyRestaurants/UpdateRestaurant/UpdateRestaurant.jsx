@@ -9,6 +9,9 @@ import { GlobalState } from "../../../../context/GlobalContext";
 import { times } from "../../../../data/times";
 import Menu from "../../../../components/Menu";
 import Loader from "../../../../components/Loader";
+import { Img } from "react-image";
+import ImageLoader from "../../../../components/ImageLoader";
+import FallbackImage from "../../../../components/FallbackImage";
 
 const UpdateRestaurant = () => {
   const params = useParams();
@@ -172,9 +175,17 @@ const UpdateRestaurant = () => {
             <div className="my-3 flex flex-col justify-between text-sm">
               <p className="font-medium text-reg">Gallery Images</p>
               <div className="flex flex-wrap">
-                {images.map((image, i) => (
+                {images.map((image) => (
                   <div key={image} className="flex flex-col items-center mx-2">
-                    <img src={image} alt="gallary" className="w-16" />
+                    <Img
+                      src={image}
+                      alt="gallary"
+                      className="w-16"
+                      loader={<ImageLoader height={64} width={64} />}
+                      unloader={
+                        <FallbackImage classes="w-16 h-16 object-cover" />
+                      }
+                    />
                     <span
                       onClick={() => deleteImage(image)}
                       className="text-red-500 cursor-pointer"

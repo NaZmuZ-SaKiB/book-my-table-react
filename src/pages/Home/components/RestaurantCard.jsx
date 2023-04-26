@@ -1,9 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Img } from "react-image";
 
 import Price from "../../../components/Price";
 import RatingStars from "../../../components/RatingStars";
 import getEvgRating from "../../../../utils/avgRating";
+import ImageLoader from "../../../components/ImageLoader";
+import FallbackImage from "../../../components/FallbackImage";
 
 const RestaurantCard = ({ restaurant }) => {
   const { name, main_image, cuisine, price, location, slug, reviews } =
@@ -17,7 +20,12 @@ const RestaurantCard = ({ restaurant }) => {
   return (
     <div className="w-64 h-72 m-3 bg-white rounded overflow-hidden shadow cursor-pointer">
       <Link to={`/restaurant/${slug}`}>
-        <img src={main_image} alt="" className="w-full h-36" />
+        <Img
+          src={main_image}
+          className="w-full h-36 object-cover"
+          loader={<ImageLoader height={145} width="100%" />}
+          unloader={<FallbackImage classes="w-full h-36 object-cover" />}
+        />
         <div className="p-2">
           <h3 className="font-bold text-2xl mb-2 hover:underline">{name}</h3>
           <div className="flex items-baseline">

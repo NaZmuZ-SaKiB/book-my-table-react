@@ -1,8 +1,11 @@
 import { Link } from "react-router-dom";
+import { Img } from "react-image";
 
 import Price from "../../../components/Price";
 import RatingStars from "../../../components/RatingStars";
 import getEvgRatting from "../../../../utils/avgRating";
+import ImageLoader from "../../../components/ImageLoader";
+import FallbackImage from "../../../components/FallbackImage";
 
 export default function RestaurantCard({ restaurant }) {
   const { name, main_image, location, price, cuisine, slug, reviews } =
@@ -23,10 +26,11 @@ export default function RestaurantCard({ restaurant }) {
 
   return (
     <div className="flex my-4 bg-white rounded shadow">
-      <img
+      <Img
         src={main_image}
-        alt=""
         className="w-24 sm:w-44 object-cover rounded"
+        loader={<ImageLoader height={140} width={175} />}
+        unloader={<FallbackImage classes="w-24 sm:w-44 object-cover rounded" />}
       />
       <div className="pl-3 sm:pl-5 py-2">
         <h2 className="text-2xl sm:text-3xl">{name}</h2>

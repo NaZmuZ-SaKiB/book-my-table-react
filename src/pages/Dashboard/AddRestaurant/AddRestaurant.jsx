@@ -1,10 +1,13 @@
 import { useContext, useEffect, useRef, useState } from "react";
 import { CircularProgress } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import { Img } from "react-image";
 import axios from "axios";
 
 import { times } from "../../../data";
 import { GlobalState } from "../../../context/GlobalContext";
+import ImageLoader from "../../../components/ImageLoader";
+import FallbackImage from "../../../components/FallbackImage";
 
 const AddRestaurant = () => {
   const [inputs, setInputs] = useState({
@@ -175,9 +178,15 @@ const AddRestaurant = () => {
       <div className="my-3 flex flex-col justify-between text-sm">
         <p className="font-medium text-reg">Add Gallery Images</p>
         <div className="flex flex-wrap">
-          {images.map((image, i) => (
+          {images.map((image) => (
             <div key={image} className="flex flex-col items-center mx-2">
-              <img src={image} alt="gallary" className="w-16" />
+              <Img
+                loader={<ImageLoader height={64} width={64} />}
+                unloader={<FallbackImage classes="h-16 w-16 object-cover" />}
+                src={image}
+                alt="gallary"
+                className="w-16"
+              />
               <span
                 onClick={() => deleteImage(image)}
                 className="text-red-500 cursor-pointer"
