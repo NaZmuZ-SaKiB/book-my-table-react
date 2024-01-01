@@ -55,7 +55,10 @@ const Search = () => {
                 <RestaurantCard key={restaurant.id} restaurant={restaurant} />
               ))
             ) : (
-              <p>No restaurant found :(</p>
+              <p>
+                No restaurant found :( <br />
+                Only ottawa, toronto and niagara is available now.
+              </p>
             )}
           </div>
         )}
