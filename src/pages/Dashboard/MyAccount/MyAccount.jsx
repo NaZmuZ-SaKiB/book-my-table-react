@@ -27,7 +27,8 @@ const MyAccount = () => {
         inputs.first_name === data.first_name &&
         inputs.last_name === data.last_name &&
         inputs.email === data.email &&
-        inputs.city === data.city
+        inputs.city === data.city &&
+        inputs.phone === data.phone
       ) {
         setDisabled(true);
       } else {
