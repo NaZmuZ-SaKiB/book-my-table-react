@@ -15,10 +15,11 @@ import AddRestaurant from "./pages/Dashboard/AddRestaurant/AddRestaurant";
 import MyRestaurants from "./pages/Dashboard/MyRestaurants/MyRestaurants";
 import UpdateRestaurant from "./pages/Dashboard/MyRestaurants/UpdateRestaurant/UpdateRestaurant";
 import AddItem from "./pages/Dashboard/AddItem/AddItem";
+import Footer from "./components/Footer";
 
 function App() {
   return (
-    <main className="max-w-screen-2xl m-auto bg-gray-50">
+    <main className="m-auto bg-gray-50">
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -50,6 +51,7 @@ function App() {
         </Route>
         <Route path="*" element={<h1>404</h1>} />
       </Routes>
+      <Footer />
       <Toast />
     </main>
   );
