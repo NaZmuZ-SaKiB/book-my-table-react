@@ -2,6 +2,7 @@ import React from "react";
 import { useQuery } from "@tanstack/react-query";
 
 import Header from "../../components/Header";
+import Footer from "../../components/Footer";
 import RestaurantCard from "./components/RestaurantCard";
 import RestaurantLoading from "./components/RestaurantLoading";
 import getAllRestaurants from "../../queries/getAllRestaurants";
@@ -21,7 +22,7 @@ const Home = () => {
     );
   } else {
     return (
-      <div>
+      <>
         <Header />
         <div className="py-3 px-2 mt-5 lg:w-[900px] lg:mx-auto flex flex-wrap justify-center">
           {restaurants?.data ? (
@@ -34,7 +35,8 @@ const Home = () => {
             </h2>
           )}
         </div>
-      </div>
+        <Footer />
+      </>
     );
   }
 };

@@ -23,7 +23,7 @@ const SearchSideBar = ({ searchParams, setSearchparams }) => {
   if (isInitialLoading) return <SearchSiceBarLoading />;
   else
     return (
-      <div className="pr-2 w-full bg-gray-50">
+      <div className="pr-2 w-full bg-white md:bg-gray-50">
         <div className="p-4 bg-white flex flex-col rounded shadow">
           <h1 className="mb-2 font-medium text-lg">Region</h1>
           {data?.locationData?.data.map((location) => (
@@ -70,7 +70,7 @@ const SearchSideBar = ({ searchParams, setSearchparams }) => {
         </div>
         <p
           to="/search"
-          className="py-2 px-4 text-reg rounded-full cursor-pointer bg-red-700 text-white mt-3 inline-block"
+          className="py-2 px-4 mb-2 ml-2 text-reg rounded-full cursor-pointer bg-red-700 text-white mt-3 inline-block"
           onClick={() => setSearchparams({})}
         >
           Reset Filters

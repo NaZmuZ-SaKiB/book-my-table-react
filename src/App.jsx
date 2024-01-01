@@ -15,7 +15,6 @@ import AddRestaurant from "./pages/Dashboard/AddRestaurant/AddRestaurant";
 import MyRestaurants from "./pages/Dashboard/MyRestaurants/MyRestaurants";
 import UpdateRestaurant from "./pages/Dashboard/MyRestaurants/UpdateRestaurant/UpdateRestaurant";
 import AddItem from "./pages/Dashboard/AddItem/AddItem";
-import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -51,7 +50,7 @@ function App() {
         </Route>
         <Route path="*" element={<h1>404</h1>} />
       </Routes>
-      <Footer />
+
       <Toast />
     </main>
   );

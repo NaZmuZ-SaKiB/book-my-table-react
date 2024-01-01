@@ -2,6 +2,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 
+import Footer from "../../components/Footer";
 import getRestaurantBySlug from "../../queries/getRestaurantBySlug";
 import Header from "./components/Header";
 import RestaurantNavBar from "./components/RestaurantNavBar";
@@ -68,6 +69,7 @@ const Restaurant = () => {
             />
           </div>
         </div>
+        <Footer />
       </>
     );
   }

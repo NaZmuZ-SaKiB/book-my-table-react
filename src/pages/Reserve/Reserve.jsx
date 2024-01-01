@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { useParams, useSearchParams } from "react-router-dom";
 
+import Footer from "../../components/Footer";
 import getRestaurantBySlug from "../../queries/getRestaurantBySlug";
 import Loader from "../../components/Loader";
 import Header from "./components/Header";
@@ -21,8 +22,8 @@ const Reserve = () => {
   else {
     const { name, main_image, slug } = data.data;
     return (
-      <div>
-        <div className="py-5 px-2 w-full max-w-screen-md m-auto">
+      <div className="flex flex-col min-h-screen">
+        <div className="py-5 px-2 w-full max-w-screen-md m-auto flex-grow">
           <Header
             image={main_image}
             name={name}
@@ -31,6 +32,7 @@ const Reserve = () => {
           />
           <Form slug={slug} partySize={partySize} date={date} />
         </div>
+        <Footer />
       </div>
     );
   }
