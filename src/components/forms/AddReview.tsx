@@ -26,6 +26,7 @@ export const ReviewValidation = z.object({
 
 const AddReview = ({ slug }: { slug: string }) => {
   const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
 
   const user = isUserLoggedIn();
 
@@ -45,6 +46,7 @@ const AddReview = ({ slug }: { slug: string }) => {
     })) as unknown as TResponse;
 
     if (result.success) {
+      setSuccess(result.message);
       queryClient.invalidateQueries({
         queryKey: [tags.Restaurant, slug],
       });
@@ -63,8 +65,18 @@ const AddReview = ({ slug }: { slug: string }) => {
     <div>
       <p className="font-bold mb-3">Leave a Rating</p>
       {error && (
-        <Alert severity="error" className="my-5">
+        <Alert severity="error" className="my-5" onClose={() => setError("")}>
           {error}
+        </Alert>
+      )}
+
+      {success && (
+        <Alert
+          severity="success"
+          className="my-5"
+          onClose={() => setSuccess("")}
+        >
+          {success}
         </Alert>
       )}
       <CustomForm
