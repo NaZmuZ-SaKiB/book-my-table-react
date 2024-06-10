@@ -8,15 +8,15 @@ const RestaurantImages = ({ images }: { images: string[] }) => {
       <h2 className="text-gray-700 text-left font-bold text-2xl md:text-3xl mt-10 mb-7 border-b pb-5">
         {images.length} Photo{images.length > 1 ? "s" : ""}
       </h2>
-      <div className="flex flex-wrap">
+      <div className="flex flex-wrap gap-1">
         {images.map((image, i) => (
           <Img
             key={i + Math.random()}
-            className="w-45 md:w-56 h-44 mr-1 mb-1 object-cover"
+            className="w-45 md:w-56 h-44 object-cover"
             src={image}
             loader={<ImageLoader height={175} width={220} />}
             unloader={
-              <FallbackImage classes="w-45 md:w-56 h-44 mr-1 mb-1 object-cover" />
+              <FallbackImage classes="w-45 md:w-56 h-44 object-cover" />
             }
           />
         ))}
