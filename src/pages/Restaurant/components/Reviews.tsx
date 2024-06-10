@@ -19,13 +19,11 @@ const Reviews = ({ reviews }: TProps) => {
           : "No Reviews!"}
       </h2>
       <div>
-        {reviews.length ? (
-          reviews.map((review) => (
-            <ReviewCard key={review.id} review={review} />
-          ))
-        ) : (
-          <p>No Reviews!</p>
-        )}
+        {reviews.length
+          ? reviews.map((review) => (
+              <ReviewCard key={review.id} review={review} />
+            ))
+          : null}
       </div>
     </div>
   );
