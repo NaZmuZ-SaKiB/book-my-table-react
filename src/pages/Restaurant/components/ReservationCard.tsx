@@ -35,10 +35,10 @@ const ReservationCard = ({ openTime, closeTime, slug }: TProps) => {
   }, [selectedDate, time, partySize]);
 
   useEffect(() => {
-    if (data) {
+    if (!isLoading && data) {
       setAvailableTimes(data?.data);
     }
-  }, [data]);
+  }, [data, isLoading]);
 
   const handleChangeDate = (date: Date) => {
     if (date) {
