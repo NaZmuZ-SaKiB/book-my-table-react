@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useAvailabilitiesQuery } from "../../../lib/Queries/Restaurant.query";
 import { CircularProgress, MenuItem, Select } from "@mui/material";
 import { TTimeData, times, partySize as partySizes } from "../../../data";
@@ -15,6 +15,10 @@ const ReservationCard = ({ openTime, closeTime, slug }: TProps) => {
   const [partySize, setPartySize] = useState(2);
   const [day, setDay] = useState(new Date().toISOString().split("T")[0]);
 
+  const [availableTimes, setAvailableTimes] = useState<TTimeData[] | null>(
+    null
+  );
+
   const {
     data,
     isFetching: isLoading,
@@ -26,7 +30,15 @@ const ReservationCard = ({ openTime, closeTime, slug }: TProps) => {
     time,
   });
 
-  const availableTimes = data?.data;
+  useEffect(() => {
+    setAvailableTimes(null);
+  }, [selectedDate, time, partySize]);
+
+  useEffect(() => {
+    if (data) {
+      setAvailableTimes(data?.data);
+    }
+  }, [data]);
 
   const handleChangeDate = (date: Date) => {
     if (date) {
